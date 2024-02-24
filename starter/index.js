@@ -12,9 +12,10 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
+const { get } = require("http");
 
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
+// prompt questions for each class
 const manager = [
     {
         type: 'input',
@@ -61,12 +62,18 @@ const engineer = [
         message: 'Email: ',
     },
     {
+        type: 'input',
+        name: 'github',
+        message: 'GitHub Username: ',
+    },
+    {
         type: 'checkbox',
         message: 'Add another team member: ',
         name: 'add',
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
     },
 ];
+
 const intern = [
     {
         type: 'input',
@@ -95,25 +102,61 @@ const intern = [
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
     },
 ];
+
+// array to store employees objects
 const employeeList = []
+
+// variable to store html page data
 let htmlPage = '';
-function init() {
-    inquirer
-        .prompt(manager)
-        .then((data) => {
-            const newManager = new Manager(data.name, data.id, data.email, data.office);
-            employeeList.push(newManager);
+
+// function to generate objects 
+
+function generateObj(objName, data) {
+    if (objName === 'manager') {
+        const newManager = new Manager(data.name, data.id, data.email, data.office);
+        employeeList.push(newManager);
+    }
+    else if (objName === 'engineer') {
+        const newEngineer = new Engineer(data.name, data.id, data.email, data.github);
+        employeeList.push(newEngineer);
+    }
+    else if (objName === 'intern') {
+        const newIntern = new Intern(data.name, data.id, data.email, data.school);
+        employeeList.push(newIntern);
+    }
+}
+
+// set initial values of object and prompt questions to manager
+
+let objectName = 'manager';
+let questions = manager;
+
+// main function to kick off prompts
+function getTeamInfo() {
+    inquirer.prompt(questions).then((answers) => {
+        generateObj(objectName, answers);
+        if (answers.add[0] === 'Add an engineer') {
+            objectName = 'engineer';
+            questions = engineer;
+            getTeamInfo();
+        }
+        else if (answers.add[0] === 'Add an intern') {
+            objectName = 'intern';
+            questions = intern;
+            getTeamInfo();
+        }
+        else {
             htmlPage = render(employeeList);
             fs.writeFile(outputPath, htmlPage, err => {
                 if (err) {
                     console.error(err);
                 } else {
-                    console.log('File written successfully!');
+                    console.log('Team page has been generated successfully and saved to output folder!');
                 };
             });
-        });
-      
+        };
+    });
 };
 
-init();
-
+// call main function
+getTeamInfo();
