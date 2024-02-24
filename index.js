@@ -5,8 +5,6 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const Rx = require("rxjs");
-
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -14,6 +12,39 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./src/page-template.js");
 const { get } = require("http");
 
+// validation functions for user inputs using regex
+
+const emailValidation = async (input) => {
+    const regex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/
+    if (regex.test(input)) {
+        return true;
+    };
+    return 'Please enter a valid value';
+};
+
+const stringValidation = async (input) => {
+    const regex = /^[a-zA-Z]+$/;
+    if (regex.test(input)) {
+        return true;
+    };
+    return 'Please enter a valid value';
+};
+
+const numberValidation = async (input) => {
+    const regex = /\d/;
+    if (regex.test(input)) {
+        return true;
+    };
+    return 'Please enter a valid value';
+};
+
+const mixValidation = async (input) => {
+    const regex = /[\w\d]+/;
+    if (regex.test(input)) {
+        return true;
+    };
+    return 'Please enter a valid value';
+};
 
 // prompt questions for each class
 const manager = [
@@ -21,21 +52,28 @@ const manager = [
         type: 'input',
         name: 'name',
         message: 'Name: ',
+        validate: stringValidation
     },
     {
         type: 'input',
         name: 'id',
         message: 'Employee ID: ',
+        validate: numberValidation
     },
     {
         type: 'input',
         name: 'email',
         message: 'Email address: ',
+        validate: emailValidation
+
     },
     {
         type: 'input',
         name: 'office',
         message: 'Office Number: ',
+        validate: mixValidation
+
+
     },
     {
         type: 'checkbox',
@@ -50,21 +88,28 @@ const engineer = [
         type: 'input',
         name: 'name',
         message: `Engineer's Name: `,
+        validate: stringValidation
     },
     {
         type: 'input',
         name: 'id',
         message: 'ID: ',
+        validate: numberValidation
+
     },
     {
         type: 'input',
         name: 'email',
         message: 'Email: ',
+        validate: emailValidation
+
     },
     {
         type: 'input',
         name: 'github',
         message: 'GitHub Username: ',
+        validate: mixValidation
+
     },
     {
         type: 'checkbox',
@@ -79,21 +124,26 @@ const intern = [
         type: 'input',
         name: 'name',
         message: `Intern's Name: `,
+        validate: stringValidation
     },
     {
         type: 'input',
         name: 'id',
         message: 'ID: ',
+        validate: numberValidation
+
     },
     {
         type: 'input',
         name: 'email',
         message: 'Email: ',
+        validate: mixValidation
     },
     {
         type: 'input',
         name: 'school',
         message: 'School: ',
+        validate: stringValidation
     },
     {
         type: 'checkbox',
@@ -102,6 +152,8 @@ const intern = [
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
     },
 ];
+
+
 
 // array to store employees objects
 const employeeList = []

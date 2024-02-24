@@ -27,6 +27,9 @@
   ## Test
   run ```npm run test``` to perform unit testing included in the application. There are three files to test the behaviour of employee classes (Manager, Engineer and Intern). 
   
+  ## Credit
+  Regular expression pattern for email validation function was obtained from [this article](https://www.abstractapi.com/guides/email-validation-regex-javascript). 
+   
   ## Questions
   Check my GitHub profile or get in touch if you have any questions by clicking on contact link below to send me an email. 
 

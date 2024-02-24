@@ -23,6 +23,7 @@ As a manager a user want to generate a webpage that displays my team's basic inf
     * The other three classes will extend `Employee`.      
     * In addition to `Employee`'s properties and methods, `Manager` will also have the following:
       * `officeNumber`
+      * `getOfficeNumber()`
       * `getRole()`&mdash;overridden to return `'Manager'`
     * In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
       * `github`&mdash;GitHub username
