@@ -1,0 +1,17 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.jumbotron {
+    background-color: #3C4C70;
+    padding: 30px;
+    color: wheat;
+}
+
+.card {
+    margin-inline-end: 10px;
+}
+.card-header {
+    text-align: center;
+    background-color: #9168A0;
+    color: white;
+}
