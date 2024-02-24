@@ -32,6 +32,11 @@ const manager = [
         message: 'Email address: ',
     },
     {
+        type: 'input',
+        name: 'office',
+        message: 'Office Number: ',
+    },
+    {
         type: 'checkbox',
         message: 'Add another team member: ',
         name: 'add',
@@ -90,17 +95,25 @@ const intern = [
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
     },
 ];
-
+const employeeList = []
+let htmlPage = '';
 function init() {
     inquirer
         .prompt(manager)
         .then((data) => {
-            return data;
+            const newManager = new Manager(data.name, data.id, data.email, data.office);
+            employeeList.push(newManager);
+            htmlPage = render(employeeList);
+            fs.writeFile(outputPath, htmlPage, err => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log('File written successfully!');
+                };
+            });
         });
-}
+      
+};
 
-
-// function call to initialize program
 init();
-
 
