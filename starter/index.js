@@ -14,6 +14,7 @@ const Intern = require("./lib/Intern");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-const adam = new Engineer('Adam', 10, 'adam.diaai@outlook.com', 'abdalla-diaai');
-
-console.log(adam.getGithub());
+const abdalla = new Employee('abdalla');
+const adam = new Employee('adam', 10, 'adam.diaai@outlook.com')
+console.log(abdalla);
+console.log(adam.getName());
