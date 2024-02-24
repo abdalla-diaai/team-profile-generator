@@ -26,7 +26,7 @@
   Please refer to each project's style and contribution guidelines for submitting patches and additions. In general, we follow the "fork-and-pull" Git workflow. NOTE: Be sure to merge the latest from "upstream" before making a pull request!
   
   ## Test
-  run ```npm run test``` to perform unit testing included in the application. There are three files to test the behaviour of employee classes (Manager, Engineer and Intern). 
+  Run ```npm run test``` to perform unit testing included in the application. There are three files to test the behaviour of employee classes (Manager, Engineer and Intern). 
   
   ## Credit
   Regular expression pattern for [email validation function](https://github.com/abdalla-diaai/team-profile-generator/blob/37c4ff14e0994ad5eaf2d27c3195a29e5efd476f/index.js#L17C1-L24C1) was obtained from [this article](https://www.abstractapi.com/guides/email-validation-regex-javascript). 
