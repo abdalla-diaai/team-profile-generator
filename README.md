@@ -32,6 +32,10 @@
 
   ![test image](./assets/test.png).
   
+  [Link to Deployed Page](output/styles.css)
+
+  [LINK TO VIDEO DEMO](https://youtu.be/IOfU6Vq2_sY)
+
   ## Credit
   Regular expression pattern for [email validation function](https://github.com/abdalla-diaai/team-profile-generator/blob/37c4ff14e0994ad5eaf2d27c3195a29e5efd476f/index.js#L17C1-L24C1) was obtained from [this article](https://www.abstractapi.com/guides/email-validation-regex-javascript). 
    
