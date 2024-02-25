@@ -32,7 +32,7 @@
 
   ![test image](./assets/test.png).
   
-  [Link to Deployed Page](output/styles.css)
+  [LINK TO DEPLOYED PAGE](output/styles.css)
 
   [LINK TO VIDEO DEMO](https://youtu.be/IOfU6Vq2_sY)
 
