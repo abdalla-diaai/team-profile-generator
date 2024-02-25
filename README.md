@@ -5,7 +5,7 @@
   * [Installation](#Installation)
   * [Usage](#Usage)
   * [License](#License)
-  * [Contribution](#Contributing)
+  * [Contributing](#Contributing)
   * [Test](#test)
   * [Credit](#credit)
   * [Questions](#questions)
