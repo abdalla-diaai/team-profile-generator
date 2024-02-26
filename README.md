@@ -5,7 +5,7 @@
   * [Installation](#Installation)
   * [Usage](#Usage)
   * [License](#License)
-  * [Contribution](#Contributing)
+  * [Contributing](#Contributing)
   * [Test](#test)
   * [Credit](#credit)
   * [Questions](#questions)
@@ -32,7 +32,7 @@
 
   ![test image](./assets/test.png).
   
-  [Link to Deployed Page](output/styles.css)
+  [LINK TO DEPLOYED PAGE](output/styles.css)
 
   [LINK TO VIDEO DEMO](https://youtu.be/IOfU6Vq2_sY)
 
