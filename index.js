@@ -13,7 +13,6 @@ const render = require("./src/page-template.js");
 const { get } = require("http");
 
 // validation functions for user inputs using regex
-
 const emailValidation = async (input) => {
     const regex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/
     if (regex.test(input)) {
@@ -153,8 +152,6 @@ const intern = [
     },
 ];
 
-
-
 // array to store employees objects
 const employeeList = []
 
@@ -162,7 +159,6 @@ const employeeList = []
 let htmlPage = '';
 
 // function to generate objects 
-
 function generateObj(objName, data) {
     if (objName === 'manager') {
         const newManager = new Manager(data.name, data.id, data.email, data.office);
@@ -179,7 +175,6 @@ function generateObj(objName, data) {
 }
 
 // set initial values of object and prompt questions to manager
-
 let objectName = 'manager';
 let questions = manager;
 
