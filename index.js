@@ -75,7 +75,7 @@ const manager = [
 
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Add another team member: ',
         name: 'add',
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
@@ -111,7 +111,7 @@ const engineer = [
 
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Add another team member: ',
         name: 'add',
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
@@ -145,7 +145,7 @@ const intern = [
         validate: stringValidation
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Add another team member: ',
         name: 'add',
         choices: ['Add an engineer', 'Add an intern', 'Finish building the team']
@@ -182,12 +182,12 @@ let questions = manager;
 function getTeamInfo() {
     inquirer.prompt(questions).then((answers) => {
         generateObj(objectName, answers);
-        if (answers.add[0] === 'Add an engineer') {
+        if (answers.add === 'Add an engineer') {
             objectName = 'engineer';
             questions = engineer;
             getTeamInfo();
         }
-        else if (answers.add[0] === 'Add an intern') {
+        else if (answers.add === 'Add an intern') {
             objectName = 'intern';
             questions = intern;
             getTeamInfo();
